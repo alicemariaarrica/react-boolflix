@@ -1,12 +1,24 @@
-import React, { createContext, useContext, useState } from 'react';
+import { createContext } from 'react';
 
 
-const GlobalContext = createContext();
+export const GlobalContext = createContext();
 
 
-export const GlobalProvider = ({ children }) => {
+function GlobalContextProvider({ children }) {
 
-    const [searchQuery, setSearchQuery] = useState('');
-    const [movies, setMovies] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null); 
+    const apiUrl = '';
+
+    apiUrl
+
+
+
+    return (
+
+        <GlobalContextProvider value={valori}>
+            {children}
+
+        </GlobalContextProvider>
+    )
+
+
+}
