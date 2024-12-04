@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../context/GlobalContext"
-import boolflixLogo from "/logo.png";
+import NetflixLogo from "/logo.png";
 
 export default function AppHeader() {
     const { searchText, setSearchText, base_movies_api_url, HandleSearchTextSubmit } = useGlobalContext()
@@ -10,7 +10,7 @@ export default function AppHeader() {
         <header>
 
             <div className="logo">
-                <img src={boolflixLogo} alt="" />
+                <img src={NetflixLogo} alt="" />
             </div>
             <form onSubmit={HandleSearchTextSubmit}>
                 <input className="form-control" type="search" placeholder="Search..." onChange={(e) => setSearchText(e.target.value)} value={searchText} />

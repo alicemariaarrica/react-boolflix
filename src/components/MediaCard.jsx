@@ -1,37 +1,35 @@
+import React from 'react';
+import { useGlobalContext } from "../contexts/GlobalContext";
+import MediaCard from "./MediaCard";
+import WorldFlag from 'react-world-flags';
 
-import { useGlobalContext } from "../context/GlobalContext";
-import Rating from "./Rating";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlag } from "@fortawesome/free-solid-svg-icons";
-
-export default function MediaCard({ title, original, vote, overview, poster, lang }) {
-    const imageURL = `https://image.tmdb.org/t/p/w342/${poster}`;
-
-
-    const getFlagURL = (language) => {
-        const flagBaseURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/";
-        const langToFlag = {
-            "it": "4/42/Flag_of_Italy.svg/120px-Flag_of_Italy.svg.png",
-            "en": "1/1f/Flag_of_the_United_States.svg/120px-Flag_of_the_United_States.svg.png",
-            "fr": "c/c3/Flag_of_France.svg/120px-Flag_of_France.svg.png",
-
-        };
-
-        return langToFlag[language] || "default-flag.png";
-    };
+export default function MovieList() {
+    const { movies, serchText } = useGlobalContext();
 
     return (
-        <div className="media-card">
-            <img src={imageURL} alt={title} className="poster-img" />
-            <div className="media-card-details">
-                <h3>{title}</h3>
-                <p>{original}</p>
-                <div className="flag">
-                    <img src={getFlagURL(lang)} alt={`Flag of ${lang}`} />
-                </div>
-                <Rating vote={vote} />
-                <p>{overview}</p>
+        <section className="movie-list">
+            <div className="p-3 bg-dark mb-4">
+                <h2>{!serchText ? 'Popular movies' : 'Movies'}</h2>
             </div>
-        </div>
+
+            <div className="container">
+                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4">
+                    {movies && movies.map((movie) => (
+                        <div key={movie.id} className="col">
+                            <MediaCard
+                                title={movie.title}
+                                original={movie.original_title}
+                                vote={movie.vote_average}
+                                overview={movie.overview}
+                                poster={movie.poster_path}
+                                lang={movie.original_language}
+                            />
+
+                            <WorldFlag code={movie.original_language.toUpperCase()} style={{ width: '30px', height: '20px' }} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 }
