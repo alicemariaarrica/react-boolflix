@@ -1,5 +1,6 @@
 
-import { GlobalContextProvider, } from "./contexts/GlobalContext"
+import { GlobalContextProvider, } from "./context/GlobalContext"
+
 
 function App() {
 
