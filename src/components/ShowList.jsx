@@ -1,5 +1,5 @@
 
-import { useGlobalContext } from "../contexts/GlobalContext";
+import { useGlobalContext } from "../context/GlobalContext";
 import MediaCard from "./MediaCard";
 
 export default function ShowList() {

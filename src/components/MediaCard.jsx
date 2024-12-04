@@ -1,5 +1,5 @@
 
-import { useGlobalContext } from "../contexts/GlobalContext";
+import { useGlobalContext } from "../context/GlobalContext";
 import Rating from "./Rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlag } from "@fortawesome/free-solid-svg-icons";

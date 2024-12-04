@@ -1,4 +1,4 @@
-import { useGlobalContext } from "../contexts/GlobalContext"
+import { useGlobalContext } from "../context/GlobalContext"
 import boolflixLogo from "/logo.png";
 
 export default function AppHeader() {

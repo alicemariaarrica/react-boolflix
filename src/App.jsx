@@ -18,6 +18,8 @@ function App() {
 
         <main>
 
+          <MovieList />
+          <ShowList />
 
         </main>
 
